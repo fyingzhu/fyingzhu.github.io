@@ -117,8 +117,10 @@
 
 
 
+  
 
-  <link rel="alternate" href="/atom.xml" title="二马先森的博客" type="application/atom+xml" />
+
+  <link rel="alternate" href="/atom.xml" title="fyingzhu's Blog" type="application/atom+xml" />
 
 
 
@@ -129,7 +131,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
 <meta property="og:url" content="https://fyingzhu.github.io/about/index.html">
-<meta property="og:site_name" content="二马先森的博客">
+<meta property="og:site_name" content="fyingzhu&#39;s Blog">
 <meta property="og:description" content="你好，这是孤鸿的家．正处于齐一所说的这个年纪 (ps:很想插入这首音乐无奈版权) 笔者已经大二,一事无成.前面搞过ACM,我有关ACM的blog,现在准备改行了(牌都没拿就要退役了)，想去追求自己的初心，曾经入门计算机这个专业本就是想着，能让更多的人从体力劳动中解脱出来.听说现在已经由很多人在干这个事了,无人驾驶,IBM　watson 的医疗诊断,google的机器翻译……每一项人工智能的杰作似乎">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-06-23T15:32:45.000Z">
@@ -171,7 +173,7 @@
 
 
 
-  <title>about | 二马先森的博客</title>
+  <title>about | fyingzhu's Blog</title>
   
 
 
@@ -201,7 +203,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">二马先森的博客</span>
+        <span class="site-title">fyingzhu's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -537,7 +539,7 @@
 
   
     <span class="site-uv">
-      <i class="fa fa-user"></i>
+      <i class="fa fa-user"></i> No
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
       
     </span>
@@ -545,7 +547,7 @@
 
   
     <span class="site-pv">
-      <i class="fa fa-eye"></i>
+      <i class="fa fa-eye"></i> view
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
       
     </span>
@@ -593,8 +595,6 @@
   
 
 
-  
-
 
 
 
@@ -633,11 +633,6 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -915,7 +910,7 @@
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('');
+                  var upperBound = parseInt('1');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }
@@ -982,7 +977,7 @@
             }
           }
 
-          if ('auto' === '') {
+          if ('auto' === 'auto') {
             input.addEventListener('input', inputEventFunction);
           } else {
             $('.search-icon').click(inputEventFunction);
