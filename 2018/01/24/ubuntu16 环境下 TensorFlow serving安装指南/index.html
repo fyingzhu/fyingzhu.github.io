@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="记事," />
+  <meta name="keywords" content="安装调试," />
 
 
 
@@ -125,18 +125,18 @@
 
 
 
-<meta name="description" content="搭建个人博客-hexo+github详细完整步骤 一个简洁优雅的hexo主题yilia HEXO+Github,搭建属于自己的博客">
-<meta name="keywords" content="记事">
+<meta name="description" content="1. 安装bazel 安装参考Install Bazel on Ubuntu  采用第一种 Using Bazel custom APT repository (recommended) 方法：  Install JDK 8  1sudo apt-get install openjdk-8-jdk  Add Bazel distribution URI as a package source (o">
+<meta name="keywords" content="安装调试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="my new post">
-<meta property="og:url" content="https://fyingzhu.github.io/2018/01/22/my-new-post/index.html">
+<meta property="og:title" content="ubuntu16 环境下 TensorFlow serving安装指南">
+<meta property="og:url" content="https://fyingzhu.github.io/2018/01/24/ubuntu16 环境下 TensorFlow serving安装指南/index.html">
 <meta property="og:site_name" content="fyingzhu&#39;s Blog">
-<meta property="og:description" content="搭建个人博客-hexo+github详细完整步骤 一个简洁优雅的hexo主题yilia HEXO+Github,搭建属于自己的博客">
+<meta property="og:description" content="1. 安装bazel 安装参考Install Bazel on Ubuntu  采用第一种 Using Bazel custom APT repository (recommended) 方法：  Install JDK 8  1sudo apt-get install openjdk-8-jdk  Add Bazel distribution URI as a package source (o">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-24T05:54:03.744Z">
+<meta property="og:updated_time" content="2018-01-24T09:58:53.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="my new post">
-<meta name="twitter:description" content="搭建个人博客-hexo+github详细完整步骤 一个简洁优雅的hexo主题yilia HEXO+Github,搭建属于自己的博客">
+<meta name="twitter:title" content="ubuntu16 环境下 TensorFlow serving安装指南">
+<meta name="twitter:description" content="1. 安装bazel 安装参考Install Bazel on Ubuntu  采用第一种 Using Bazel custom APT repository (recommended) 方法：  Install JDK 8  1sudo apt-get install openjdk-8-jdk  Add Bazel distribution URI as a package source (o">
 
 
 
@@ -166,13 +166,13 @@
 
 
 
-  <link rel="canonical" href="https://fyingzhu.github.io/2018/01/22/my-new-post/"/>
+  <link rel="canonical" href="https://fyingzhu.github.io/2018/01/24/ubuntu16 环境下 TensorFlow serving安装指南/"/>
 
 
 
 
 
-  <title>my new post | fyingzhu's Blog</title>
+  <title>ubuntu16 环境下 TensorFlow serving安装指南 | fyingzhu's Blog</title>
   
 
 
@@ -343,7 +343,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fyingzhu.github.io/2018/01/22/my-new-post/">
+    <link itemprop="mainEntityOfPage" href="https://fyingzhu.github.io/2018/01/24/ubuntu16 环境下 TensorFlow serving安装指南/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -360,7 +360,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">my new post</h2>
+          <h2 class="post-title" itemprop="name headline">ubuntu16 环境下 TensorFlow serving安装指南</h2>
         
 
         <div class="post-meta">
@@ -372,8 +372,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T17:54:07+08:00">
-                2018-01-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-24T17:54:07+08:00">
+                2018-01-24
               </time>
             
 
@@ -388,7 +388,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-24T13:54:03+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-24T17:58:53+08:00">
                 2018-01-24
               </time>
             
@@ -407,8 +407,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂谈/" itemprop="url" rel="index">
-                    <span itemprop="name">杂谈</span>
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
                   </a>
                 </span>
 
@@ -449,11 +449,56 @@
       
 
       
-        <ul>
-<li><a href="https://www.jianshu.com/p/189fd945f38f" target="_blank" rel="noopener">搭建个人博客-hexo+github详细完整步骤</a></li>
-<li><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">一个简洁优雅的hexo主题yilia</a></li>
-<li><a href="https://www.jianshu.com/p/465830080ea9" target="_blank" rel="noopener">HEXO+Github,搭建属于自己的博客</a></li>
+        <h2 id="1-安装bazel"><a href="#1-安装bazel" class="headerlink" title="1. 安装bazel"></a>1. 安装bazel</h2><blockquote>
+<p>安装参考<a href="https://docs.bazel.build/versions/master/install-ubuntu.html" target="_blank" rel="noopener">Install Bazel on Ubuntu</a></p>
+</blockquote>
+<p>采用第一种 <strong>Using Bazel custom APT repository (recommended)</strong> 方法：</p>
+<ol>
+<li>Install JDK 8</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openjdk-8-jdk</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Add Bazel distribution URI as a package source (one time setup)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8&quot; | sudo tee /etc/apt/sources.list.d/bazel.list</span><br><span class="line">curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Install and update Bazel</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update &amp;&amp; sudo apt-get install bazel</span><br></pre></td></tr></table></figure>
+<p>Once installed, you can upgrade to a newer version of Bazel with:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade bazel</span><br></pre></td></tr></table></figure>
+<h2 id="2-安装gprc"><a href="#2-安装gprc" class="headerlink" title="2. 安装gprc"></a>2. 安装gprc</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install grpcio</span><br></pre></td></tr></table></figure>
+<p>提示没有pip，安装pip</p>
+<h2 id="3-Packages"><a href="#3-Packages" class="headerlink" title="3.Packages"></a>3.Packages</h2><p>To install TensorFlow Serving dependencies, execute the following:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update &amp;&amp; sudo apt-get install -y \</span><br><span class="line">        build-essential \</span><br><span class="line">        curl \</span><br><span class="line">        libcurl3-dev \</span><br><span class="line">        git \</span><br><span class="line">        libfreetype6-dev \</span><br><span class="line">        libpng12-dev \</span><br><span class="line">        libzmq3-dev \</span><br><span class="line">        pkg-config \</span><br><span class="line">        python-dev \</span><br><span class="line">        python-numpy \</span><br><span class="line">        python-pip \</span><br><span class="line">        software-properties-common \</span><br><span class="line">        swig \</span><br><span class="line">        zip \</span><br><span class="line">        zlib1g-dev</span><br></pre></td></tr></table></figure>
+<h2 id="3-从源代码安装克隆TensorFlow-Serving存储库"><a href="#3-从源代码安装克隆TensorFlow-Serving存储库" class="headerlink" title="3. 从源代码安装克隆TensorFlow Serving存储库"></a>3. 从源代码安装克隆TensorFlow Serving存储库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone --recurse-submodules https://github.com/tensorflow/serving</span><br><span class="line">cd serving</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>clone会非常慢，建议百度加速，我是硬等了3个小时才clone完。 </p>
+</blockquote>
+<p>下一步，配置TensorFlow, 运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd tensorflow</span><br><span class="line">./configure</span><br><span class="line">cd ..</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>配置过程中，会有很多选项问你是否需要，根据需要输入y/n即可。不用的尽量填n，否则后面会有很多文件的路径难以配置（LZ遇到的坑：有些文件根本没有，却让你输入路径）。</p>
+<p>配置的第一项是确认python路径，默认的是/usr/bin/python，可以用<figure class="highlight plain"><figcaption><span>python```查看当前python的路径。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 4. Build</span><br><span class="line">To build the entire tree, execute:</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>bazel build -c opt tensorflow_serving/…<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">To test your installation, execute:</span><br></pre></td></tr></table></figure></p>
+<p>bazel test -c opt tensorflow_serving/…<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">***</span><br><span class="line">### 注：过程中会遇到的问题及解决方法：</span><br><span class="line">国外软件源安装遇到的坑会少很多。。所以请首先更换软件源在安装其他软件吧。</span><br><span class="line"></span><br><span class="line">- 添加软件源</span><br><span class="line">安装完Ubuntu 16.04后 ，更换为国内的软件源：</span><br></pre></td></tr></table></figure></p>
+<p>sudo gedit /etc/apt/sources.list<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">在文件开头添加下面的网易的软件源：</span><br></pre></td></tr></table></figure></p>
+<p>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-updates main restricted<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-updates main restricted<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise universe<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise universe<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-updates universe<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-updates universe<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-updates multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-updates multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-backports main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-backports main restricted universe multiverse<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">更新软件源：</span><br></pre></td></tr></table></figure></p>
+<p>sudo apt-get update<br>```</p>
+<ul>
+<li>更改文件夹权限</li>
 </ul>
+<p>sudo chmod 777 XXX</p>
+<ul>
+<li>结束当前命令</li>
+</ul>
+<p>ctrl + c</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a href="http://blog.csdn.net/liuqz2009/article/details/52087019" target="_blank" rel="noopener">Ubuntu 16.04LTS安装后需要做的事</a></li>
+<li><a href="https://github.com/tensorflow/serving" target="_blank" rel="noopener">https://github.com/tensorflow/serving</a></li>
+<li><a href="https://github.com/grpc/grpc/tree/master/src/python/grpcio" target="_blank" rel="noopener">https://github.com/grpc/grpc/tree/master/src/python/grpcio</a></li>
+<li><a href="https://docs.bazel.build/versions/master/install-ubuntu.html" target="_blank" rel="noopener">Install Bazel on Ubuntu</a></li>
+</ol>
 
       
     </div>
@@ -495,7 +540,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/记事/" rel="tag"># 记事</a>
+            <a href="/tags/安装调试/" rel="tag"># 安装调试</a>
           
         </div>
       
@@ -508,8 +553,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/22/我的博客入门/" rel="next" title="我的博客入门">
-                <i class="fa fa-chevron-left"></i> 我的博客入门
+              <a href="/2018/01/22/my-new-post/" rel="next" title="my new post">
+                <i class="fa fa-chevron-left"></i> my new post
               </a>
             
           </div>
@@ -517,10 +562,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/24/ubuntu16 环境下 TensorFlow serving安装指南/" rel="prev" title="ubuntu16 环境下 TensorFlow serving安装指南">
-                ubuntu16 环境下 TensorFlow serving安装指南 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -598,8 +639,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -698,6 +748,22 @@ var jiathis_config={
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装bazel"><span class="nav-number">1.</span> <span class="nav-text">1. 安装bazel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装gprc"><span class="nav-number">2.</span> <span class="nav-text">2. 安装gprc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Packages"><span class="nav-number">3.</span> <span class="nav-text">3.Packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-从源代码安装克隆TensorFlow-Serving存储库"><span class="nav-number">4.</span> <span class="nav-text">3. 从源代码安装克隆TensorFlow Serving存储库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">5.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
