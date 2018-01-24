@@ -133,7 +133,7 @@
 <meta property="og:site_name" content="fyingzhu&#39;s Blog">
 <meta property="og:description" content="1. 安装bazel 安装参考Install Bazel on Ubuntu  采用第一种 Using Bazel custom APT repository (recommended) 方法：  Install JDK 8  1sudo apt-get install openjdk-8-jdk  Add Bazel distribution URI as a package source (o">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-24T09:58:53.120Z">
+<meta property="og:updated_time" content="2018-01-24T10:04:44.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu16 环境下 TensorFlow serving安装指南">
 <meta name="twitter:description" content="1. 安装bazel 安装参考Install Bazel on Ubuntu  采用第一种 Using Bazel custom APT repository (recommended) 方法：  Install JDK 8  1sudo apt-get install openjdk-8-jdk  Add Bazel distribution URI as a package source (o">
@@ -388,7 +388,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-24T17:58:53+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-24T18:04:44+08:00">
                 2018-01-24
               </time>
             
@@ -478,13 +478,21 @@
 <p>下一步，配置TensorFlow, 运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd tensorflow</span><br><span class="line">./configure</span><br><span class="line">cd ..</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>配置过程中，会有很多选项问你是否需要，根据需要输入y/n即可。不用的尽量填n，否则后面会有很多文件的路径难以配置（LZ遇到的坑：有些文件根本没有，却让你输入路径）。</p>
-<p>配置的第一项是确认python路径，默认的是/usr/bin/python，可以用<figure class="highlight plain"><figcaption><span>python```查看当前python的路径。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 4. Build</span><br><span class="line">To build the entire tree, execute:</span><br></pre></td></tr></table></figure></p>
+<p>配置的第一项是确认python路径，默认的是/usr/bin/python，可以用<br>which python查看当前python的路径。</p>
 </blockquote>
-<p>bazel build -c opt tensorflow_serving/…<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">To test your installation, execute:</span><br></pre></td></tr></table></figure></p>
-<p>bazel test -c opt tensorflow_serving/…<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">***</span><br><span class="line">### 注：过程中会遇到的问题及解决方法：</span><br><span class="line">国外软件源安装遇到的坑会少很多。。所以请首先更换软件源在安装其他软件吧。</span><br><span class="line"></span><br><span class="line">- 添加软件源</span><br><span class="line">安装完Ubuntu 16.04后 ，更换为国内的软件源：</span><br></pre></td></tr></table></figure></p>
-<p>sudo gedit /etc/apt/sources.list<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">在文件开头添加下面的网易的软件源：</span><br></pre></td></tr></table></figure></p>
-<p>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-updates main restricted<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-updates main restricted<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise universe<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise universe<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-updates universe<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-updates universe<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-updates multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-updates multiverse<br>deb <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-backports main restricted universe multiverse<br>deb-src <a href="http://mirrors.163.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.163.com/ubuntu/</a> precise-backports main restricted universe multiverse<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">更新软件源：</span><br></pre></td></tr></table></figure></p>
-<p>sudo apt-get update<br>```</p>
+<h2 id="4-Build"><a href="#4-Build" class="headerlink" title="4. Build"></a>4. Build</h2><p>To build the entire tree, execute:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel build -c opt tensorflow_serving/...</span><br></pre></td></tr></table></figure>
+<p>To test your installation, execute:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel test -c opt tensorflow_serving/...</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="注：过程中会遇到的问题及解决方法："><a href="#注：过程中会遇到的问题及解决方法：" class="headerlink" title="注：过程中会遇到的问题及解决方法："></a>注：过程中会遇到的问题及解决方法：</h3><p>国外软件源安装遇到的坑会少很多。。所以请首先更换软件源在安装其他软件吧。</p>
+<ul>
+<li>添加软件源<br>安装完Ubuntu 16.04后 ，更换为国内的软件源：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<p>在文件开头添加下面的网易的软件源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.163.com/ubuntu/ precise-updates main restricted</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ precise-updates main restricted</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ precise universe</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ precise universe</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ precise-updates universe</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ precise-updates universe</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ precise multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ precise multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ precise-updates multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ precise-updates multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ precise-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ precise-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+<p>更新软件源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
 <ul>
 <li>更改文件夹权限</li>
 </ul>
@@ -758,7 +766,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装bazel"><span class="nav-number">1.</span> <span class="nav-text">1. 安装bazel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装gprc"><span class="nav-number">2.</span> <span class="nav-text">2. 安装gprc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Packages"><span class="nav-number">3.</span> <span class="nav-text">3.Packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-从源代码安装克隆TensorFlow-Serving存储库"><span class="nav-number">4.</span> <span class="nav-text">3. 从源代码安装克隆TensorFlow Serving存储库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">5.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装bazel"><span class="nav-number">1.</span> <span class="nav-text">1. 安装bazel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装gprc"><span class="nav-number">2.</span> <span class="nav-text">2. 安装gprc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Packages"><span class="nav-number">3.</span> <span class="nav-text">3.Packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-从源代码安装克隆TensorFlow-Serving存储库"><span class="nav-number">4.</span> <span class="nav-text">3. 从源代码安装克隆TensorFlow Serving存储库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Build"><span class="nav-number">5.</span> <span class="nav-text">4. Build</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注：过程中会遇到的问题及解决方法："><span class="nav-number">5.1.</span> <span class="nav-text">注：过程中会遇到的问题及解决方法：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
