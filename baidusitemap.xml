@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://fyingzhu.com/2018/01/24/LSTM%20Neural%20Network%20for%20Time%20Series%20Prediction/</loc>
+    <lastmod>2018-01-25T03:46:55.161Z</lastmod>
+    <data>
+        <display>
+        <title>利用LSTM进行时间序列预测</title>
+        <pubTime>2018-01-24T09:54:07.000Z</pubTime>
+        
+        <tag>deep learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="深度学习" url="http://fyingzhu.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://fyingzhu.com/2018/01/24/ubuntu16%20%E7%8E%AF%E5%A2%83%E4%B8%8B%20TensorFlow%20serving%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</loc>
     <lastmod>2018-01-25T03:32:59.193Z</lastmod>
     <data>
