@@ -5,16 +5,16 @@
   <subtitle>分享知识,收获快乐,总结自我</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://fyingzhu.github.io/"/>
+  <link href="http://fyingzhu.com/"/>
   <updated>2018-01-24T10:04:44.844Z</updated>
-  <id>https://fyingzhu.github.io/</id>
+  <id>http://fyingzhu.com/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
     <title>ubuntu16 环境下 TensorFlow serving安装指南</title>
-    <link href="https://fyingzhu.github.io/2018/01/24/ubuntu16%20%E7%8E%AF%E5%A2%83%E4%B8%8B%20TensorFlow%20serving%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/"/>
-    <id>https://fyingzhu.github.io/2018/01/24/ubuntu16 环境下 TensorFlow serving安装指南/</id>
+    <link href="http://fyingzhu.com/2018/01/24/ubuntu16%20%E7%8E%AF%E5%A2%83%E4%B8%8B%20TensorFlow%20serving%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/"/>
+    <id>http://fyingzhu.com/2018/01/24/ubuntu16 环境下 TensorFlow serving安装指南/</id>
     <published>2018-01-24T09:54:07.000Z</published>
     <updated>2018-01-24T10:04:44.844Z</updated>
     
@@ -30,17 +30,17 @@
     
     </summary>
     
-      <category term="深度学习" scheme="https://fyingzhu.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="http://fyingzhu.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="安装调试" scheme="https://fyingzhu.github.io/tags/%E5%AE%89%E8%A3%85%E8%B0%83%E8%AF%95/"/>
+      <category term="安装调试" scheme="http://fyingzhu.com/tags/%E5%AE%89%E8%A3%85%E8%B0%83%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>my new post</title>
-    <link href="https://fyingzhu.github.io/2018/01/22/my-new-post/"/>
-    <id>https://fyingzhu.github.io/2018/01/22/my-new-post/</id>
+    <link href="http://fyingzhu.com/2018/01/22/my-new-post/"/>
+    <id>http://fyingzhu.com/2018/01/22/my-new-post/</id>
     <published>2018-01-22T09:54:07.000Z</published>
     <updated>2018-01-24T05:54:03.744Z</updated>
     
@@ -57,17 +57,17 @@
     
     </summary>
     
-      <category term="杂谈" scheme="https://fyingzhu.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+      <category term="杂谈" scheme="http://fyingzhu.com/categories/%E6%9D%82%E8%B0%88/"/>
     
     
-      <category term="记事" scheme="https://fyingzhu.github.io/tags/%E8%AE%B0%E4%BA%8B/"/>
+      <category term="记事" scheme="http://fyingzhu.com/tags/%E8%AE%B0%E4%BA%8B/"/>
     
   </entry>
   
   <entry>
     <title>我的博客入门</title>
-    <link href="https://fyingzhu.github.io/2018/01/22/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%85%A5%E9%97%A8/"/>
-    <id>https://fyingzhu.github.io/2018/01/22/我的博客入门/</id>
+    <link href="http://fyingzhu.com/2018/01/22/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%85%A5%E9%97%A8/"/>
+    <id>http://fyingzhu.com/2018/01/22/我的博客入门/</id>
     <published>2018-01-22T08:04:27.536Z</published>
     <updated>2018-01-22T08:04:11.819Z</updated>
     
@@ -88,8 +88,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://fyingzhu.github.io/2018/01/22/hello-world/"/>
-    <id>https://fyingzhu.github.io/2018/01/22/hello-world/</id>
+    <link href="http://fyingzhu.com/2018/01/22/hello-world/"/>
+    <id>http://fyingzhu.com/2018/01/22/hello-world/</id>
     <published>2018-01-22T07:18:05.810Z</published>
     <updated>2018-01-22T07:18:05.810Z</updated>
     

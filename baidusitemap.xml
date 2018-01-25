@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+    
+  <url>
+    <loc>http://fyingzhu.com/2018/01/24/ubuntu16%20%E7%8E%AF%E5%A2%83%E4%B8%8B%20TensorFlow%20serving%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</loc>
+    <lastmod>2018-01-24T10:04:44.844Z</lastmod>
+    <data>
+        <display>
+        <title>ubuntu16 环境下 TensorFlow serving安装指南</title>
+        <pubTime>2018-01-24T09:54:07.000Z</pubTime>
+        
+        <tag>安装调试</tag>
+         
+         
+           
+             
+              <breadCrumb title="深度学习" url="http://fyingzhu.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fyingzhu.com/2018/01/22/my-new-post/</loc>
+    <lastmod>2018-01-24T05:54:03.744Z</lastmod>
+    <data>
+        <display>
+        <title>my new post</title>
+        <pubTime>2018-01-22T09:54:07.000Z</pubTime>
+        
+        <tag>记事</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂谈" url="http://fyingzhu.com/categories/%E6%9D%82%E8%B0%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fyingzhu.com/2018/01/22/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%85%A5%E9%97%A8/</loc>
+    <lastmod>2018-01-22T08:04:11.819Z</lastmod>
+    <data>
+        <display>
+        <title>我的博客入门</title>
+        <pubTime>2018-01-22T08:04:27.536Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fyingzhu.com/2018/01/22/hello-world/</loc>
+    <lastmod>2018-01-22T07:18:05.810Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2018-01-22T07:18:05.810Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+</urlset>
