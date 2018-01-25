@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://fyingzhu.com/2018/01/22/my-new-post/</loc>
-    
-    <lastmod>2018-01-25T03:28:39.297Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://fyingzhu.com/2018/01/24/ubuntu16%20%E7%8E%AF%E5%A2%83%E4%B8%8B%20TensorFlow%20serving%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</loc>
     
-    <lastmod>2018-01-25T03:27:48.232Z</lastmod>
+    <lastmod>2018-01-25T03:32:59.193Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://fyingzhu.com/2018/01/22/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%85%A5%E9%97%A8/</loc>
     
-    <lastmod>2018-01-25T03:17:42.417Z</lastmod>
+    <lastmod>2018-01-25T03:32:27.553Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fyingzhu.com/2018/01/22/my-new-post/</loc>
+    
+    <lastmod>2018-01-25T03:28:39.297Z</lastmod>
     
   </url>
   

@@ -134,7 +134,7 @@
 <meta property="og:description" content="1. 安装bazel 安装参考Install Bazel on Ubuntu  采用第一种 Using Bazel custom APT repository (recommended) 方法：  Install JDK 8  1sudo apt-get install openjdk-8-jdk  Add Bazel distribution URI as a package source (">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/fyingzhu/Markdown_photo/blob/master/blog/20180125003.jpg?raw=true">
-<meta property="og:updated_time" content="2018-01-25T03:27:48.232Z">
+<meta property="og:updated_time" content="2018-01-25T03:32:59.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu16 环境下 TensorFlow serving安装指南">
 <meta name="twitter:description" content="1. 安装bazel 安装参考Install Bazel on Ubuntu  采用第一种 Using Bazel custom APT repository (recommended) 方法：  Install JDK 8  1sudo apt-get install openjdk-8-jdk  Add Bazel distribution URI as a package source (">
@@ -390,7 +390,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-25T11:27:48+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-25T11:32:59+08:00">
                 2018-01-25
               </time>
             
@@ -464,13 +464,13 @@
 <li>Add Bazel distribution URI as a package source (one time setup)</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8&quot; | sudo tee /etc/apt/sources.list.d/bazel.list</span><br><span class="line">curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <ol>
 <li>Install and update Bazel</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update &amp;&amp; sudo apt-get install bazel</span><br></pre></td></tr></table></figure>
 <p>Once installed, you can upgrade to a newer version of Bazel with:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade bazel</span><br></pre></td></tr></table></figure>
-<p>&lt; !–more–&gt;</p>
 <h2 id="2-安装gprc"><a href="#2-安装gprc" class="headerlink" title="2. 安装gprc"></a>2. 安装gprc</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install grpcio</span><br></pre></td></tr></table></figure>
 <p>提示没有pip，安装pip</p>
 <h2 id="3-Packages"><a href="#3-Packages" class="headerlink" title="3.Packages"></a>3.Packages</h2><p>To install TensorFlow Serving dependencies, execute the following:</p>
