@@ -389,8 +389,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-24T18:04:44+08:00">
-                2018-01-24
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-25T11:27:48+08:00">
+                2018-01-25
               </time>
             
           </span>
@@ -447,26 +447,68 @@
       
         
           
-          1. 安装bazel
-安装参考Install Bazel on Ubuntu
+            <p><img src="https://github.com/fyingzhu/Markdown_photo/blob/master/blog/20180125003.jpg?raw=true" alt="Markdown_photo/blog/20180125003.jpg"></p>
+<h2 id="1-安装bazel"><a href="#1-安装bazel" class="headerlink" title="1. 安装bazel"></a>1. 安装bazel</h2><blockquote>
+<p>安装参考<a href="https://docs.bazel.build/versions/master/install-ubuntu.html" target="_blank" rel="noopener">Install Bazel on Ubuntu</a></p>
+</blockquote>
+<p>采用第一种 <strong>Using Bazel custom APT repository (recommended)</strong> 方法：</p>
+<ol>
+<li>Install JDK 8</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openjdk-8-jdk</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Add Bazel distribution URI as a package source (one time setup)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8&quot; | sudo tee /etc/apt/sources.list.d/bazel.list</span><br><span class="line">curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Install and update Bazel</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update &amp;&amp; sudo apt-get install bazel</span><br></pre></td></tr></table></figure>
+<p>Once installed, you can upgrade to a newer version of Bazel with:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade bazel</span><br></pre></td></tr></table></figure>
+<p>&lt; !–more–&gt;</p>
+<h2 id="2-安装gprc"><a href="#2-安装gprc" class="headerlink" title="2. 安装gprc"></a>2. 安装gprc</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install grpcio</span><br></pre></td></tr></table></figure>
+<p>提示没有pip，安装pip</p>
+<h2 id="3-Packages"><a href="#3-Packages" class="headerlink" title="3.Packages"></a>3.Packages</h2><p>To install TensorFlow Serving dependencies, execute the following:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update &amp;&amp; sudo apt-get install -y \</span><br><span class="line">        build-essential \</span><br><span class="line">        curl \</span><br><span class="line">        libcurl3-dev \</span><br><span class="line">        git \</span><br><span class="line">        libfreetype6-dev \</span><br><span class="line">        libpng12-dev \</span><br><span class="line">        libzmq3-dev \</span><br><span class="line">        pkg-config \</span><br><span class="line">        python-dev \</span><br><span class="line">        python-numpy \</span><br><span class="line">        python-pip \</span><br><span class="line">        software-properties-common \</span><br><span class="line">        swig \</span><br><span class="line">        zip \</span><br><span class="line">        zlib1g-dev</span><br></pre></td></tr></table></figure>
+<h2 id="3-从源代码安装克隆TensorFlow-Serving存储库"><a href="#3-从源代码安装克隆TensorFlow-Serving存储库" class="headerlink" title="3. 从源代码安装克隆TensorFlow Serving存储库"></a>3. 从源代码安装克隆TensorFlow Serving存储库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone --recurse-submodules https://github.com/tensorflow/serving</span><br><span class="line">cd serving</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>clone会非常慢，建议百度加速，我是硬等了3个小时才clone完。 </p>
+</blockquote>
+<p>下一步，配置TensorFlow, 运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd tensorflow</span><br><span class="line">./configure</span><br><span class="line">cd ..</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>配置过程中，会有很多选项问你是否需要，根据需要输入y/n即可。不用的尽量填n，否则后面会有很多文件的路径难以配置（LZ遇到的坑：有些文件根本没有，却让你输入路径）。</p>
+<p>配置的第一项是确认python路径，默认的是/usr/bin/python，可以用<br>which python查看当前python的路径。</p>
+</blockquote>
+<h2 id="4-Build"><a href="#4-Build" class="headerlink" title="4. Build"></a>4. Build</h2><p>To build the entire tree, execute:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel build -c opt tensorflow_serving/...</span><br></pre></td></tr></table></figure>
+<p>To test your installation, execute:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel test -c opt tensorflow_serving/...</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="注：过程中会遇到的问题及解决方法："><a href="#注：过程中会遇到的问题及解决方法：" class="headerlink" title="注：过程中会遇到的问题及解决方法："></a>注：过程中会遇到的问题及解决方法：</h3><p>国外软件源安装遇到的坑会少很多。。所以请首先更换软件源在安装其他软件吧。</p>
+<ul>
+<li>添加软件源<br>安装完Ubuntu 16.04后 ，更换为国内的软件源：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<p>在文件开头添加下面的网易的软件源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.163.com/ubuntu/ precise-updates main restricted</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ precise-updates main restricted</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ precise universe</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ precise universe</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ precise-updates universe</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ precise-updates universe</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ precise multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ precise multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ precise-updates multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ precise-updates multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ precise-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ precise-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+<p>更新软件源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<ul>
+<li>更改文件夹权限</li>
+</ul>
+<p>sudo chmod 777 XXX</p>
+<ul>
+<li>结束当前命令</li>
+</ul>
+<p>ctrl + c</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a href="http://blog.csdn.net/liuqz2009/article/details/52087019" target="_blank" rel="noopener">Ubuntu 16.04LTS安装后需要做的事</a></li>
+<li><a href="https://github.com/tensorflow/serving" target="_blank" rel="noopener">https://github.com/tensorflow/serving</a></li>
+<li><a href="https://github.com/grpc/grpc/tree/master/src/python/grpcio" target="_blank" rel="noopener">https://github.com/grpc/grpc/tree/master/src/python/grpcio</a></li>
+<li><a href="https://docs.bazel.build/versions/master/install-ubuntu.html" target="_blank" rel="noopener">Install Bazel on Ubuntu</a></li>
+</ol>
 
-采用第一种 Using Bazel custom APT repository (recommended) 方法：
-
-Install JDK 8
-
-1sudo apt-get install openjdk-8-jdk
-
-Add Bazel distribution URI as a package source (one time setup)
-
-12echo &quot;deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8&
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/24/ubuntu16 环境下 TensorFlow serving安装指南/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -560,8 +602,8 @@ Add Bazel distribution URI as a package source (one time setup)
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-24T13:54:03+08:00">
-                2018-01-24
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-25T11:28:39+08:00">
+                2018-01-25
               </time>
             
           </span>
@@ -618,20 +660,14 @@ Add Bazel distribution URI as a package source (one time setup)
       
         
           
-          
-搭建个人博客-hexo+github详细完整步骤
-一个简洁优雅的hexo主题yilia
-HEXO+Github,搭建属于自己的博客
+            <p><img src="https://github.com/fyingzhu/Markdown_photo/blob/master/blog/20180125001.jpg?raw=true" alt="Markdown_photo/blog/20180125001.jpg"></p>
+<ul>
+<li><a href="https://www.jianshu.com/p/189fd945f38f" target="_blank" rel="noopener">搭建个人博客-hexo+github详细完整步骤</a></li>
+<li><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">一个简洁优雅的hexo主题yilia</a></li>
+<li><a href="https://www.jianshu.com/p/465830080ea9" target="_blank" rel="noopener">HEXO+Github,搭建属于自己的博客</a></li>
+</ul>
 
-
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/22/my-new-post/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -725,8 +761,8 @@ HEXO+Github,搭建属于自己的博客
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-22T16:04:11+08:00">
-                2018-01-22
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-25T11:17:42+08:00">
+                2018-01-25
               </time>
             
           </span>
@@ -761,21 +797,15 @@ HEXO+Github,搭建属于自己的博客
       
         
           
-          欢迎来到我的博客，我的github地址是GitHub.
-Kaggle_Titanicthe data and ipython notebook of my attempt to solve the kaggle titanic problem
-我自己实验Kaggle上的Titanic问题的ipython notebook
-train.csv和test.csv为使用到的的数据
-对于该问题的详细讲解和机器学习解决问题的一般思路请戳寒小阳的博客
-有任何问题欢迎联系hanxiaoyang.ml@gmail.com
+            <p>欢迎来到我的博客，我的github地址是<a href="https://github.com/fyingzhu" target="_blank" rel="noopener">GitHub</a>.</p>
+<h1 id="Kaggle-Titanic"><a href="#Kaggle-Titanic" class="headerlink" title="Kaggle_Titanic"></a>Kaggle_Titanic</h1><p>the data and ipython notebook of my attempt to solve the kaggle titanic problem</p>
+<p>我自己实验Kaggle上的<a href="https://www.kaggle.com/c/titanic" target="_blank" rel="noopener">Titanic问题</a>的ipython notebook</p>
+<p>&lt; !–more–&gt;</p>
+<p>train.csv和test.csv为使用到的的数据</p>
+<p>对于<strong>该问题的详细讲解</strong>和<strong>机器学习解决问题的一般思路</strong>请戳<a href="http://blog.csdn.net/han_xiaoyang/article/details/49797143" target="_blank" rel="noopener">寒小阳的博客</a></p>
+<p>有任何问题欢迎联系hanxiaoyang.ml@gmail.com</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/22/我的博客入门/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -905,19 +935,17 @@ train.csv和test.csv为使用到的的数据
       
         
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-More info: Writing
-Run server1$ hexo server
-More in
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/22/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+          
         
       
     </div>
