@@ -4,6 +4,41 @@
 
     
   <url>
+    <loc>http://fyingzhu.com/2018/01/30/11/</loc>
+    <lastmod>2018-01-30T08:50:23.651Z</lastmod>
+    <data>
+        <display>
+        <title>ubuntu16.04 + NVIDIA驱动 + CUDA + CUDA + tensorflow-gpu + keras安装</title>
+        <pubTime>2018-01-30T08:34:00.000Z</pubTime>
+        
+        <tag>ubuntu16.04，CUDA，CUDA，tensorflow-gpu，keras</tag>
+         
+         
+           
+             
+              <breadCrumb title="深度学习，环境配置" url="http://fyingzhu.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fyingzhu.com/2018/01/22/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%85%A5%E9%97%A8/</loc>
+    <lastmod>2018-01-25T03:52:35.760Z</lastmod>
+    <data>
+        <display>
+        <title>我的博客入门</title>
+        <pubTime>2018-01-22T08:04:27.536Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://fyingzhu.com/2018/01/24/LSTM%20Neural%20Network%20for%20Time%20Series%20Prediction/</loc>
     <lastmod>2018-01-25T03:46:55.161Z</lastmod>
     <data>
@@ -38,21 +73,6 @@
              
               <breadCrumb title="深度学习" url="http://fyingzhu.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://fyingzhu.com/2018/01/22/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%85%A5%E9%97%A8/</loc>
-    <lastmod>2018-01-25T03:32:27.553Z</lastmod>
-    <data>
-        <display>
-        <title>我的博客入门</title>
-        <pubTime>2018-01-22T08:04:27.536Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>

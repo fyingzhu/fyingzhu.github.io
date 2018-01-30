@@ -342,6 +342,263 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://fyingzhu.com/2018/01/30/11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fyingzhu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/30/11/" itemprop="url">ubuntu16.04 + NVIDIA驱动 + CUDA + CUDA + tensorflow-gpu + keras安装</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-30T16:34:00+08:00">
+                2018-01-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-30T16:50:23+08:00">
+                2018-01-30
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习，环境配置/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习，环境配置</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><font color="red">写在前面，一路安装走来，遇到很多TensorFlow、cuda、cudnn版本不兼容匹配的，后来，我找到了<a href="https://www.nvidia.com/en-us/data-center/gpu-accelerated-applications/tensorflow/" target="_blank" rel="noopener">NVIDIA官方系统配置</a> ，可以按照这个来配置，避免多走弯路。</font>
+
+</li>
+</ul>
+<hr>
+<p><strong>环境：</strong></p>
+<ul>
+<li>ubuntu 16.04 64bit</li>
+<li><p>显卡：NVIDIA Tesla k40m + 集成显卡</p>
+<blockquote>
+<p>注：在<a href="http://www.nvidia.com/Download/index.aspx?lang=en-us" target="_blank" rel="noopener">NVIDIA DriverDownloads</a>查找的最新为384.66，系统配置如下：<br><img src="https://github.com/fyingzhu/Markdown_photo/blob/master/InstallTool/2018013001.jpg?raw=true" alt="系统配置"></p>
+<font color="red"> 但是，安装不成功！后选择375.66成功</font>
+</blockquote>
+</li>
+<li><p>驱动：nvidia 375.66</p>
+</li>
+<li>软件：cuda8.0 + cuDNN5.1<h2 id="1-准备工作："><a href="#1-准备工作：" class="headerlink" title="1.准备工作："></a>1.准备工作：</h2><h3 id="1-1-配置安装环境"><a href="#1-1-配置安装环境" class="headerlink" title="1.1 配置安装环境"></a>1.1 配置安装环境</h3>若不安装第5步 tensorflow-gpu+keras，此处可省略。。</li>
+</ul>
+<p>sudo apt-get update<br>sudo apt-get install python-dev python-pip python-nose gcc g++ git gfortran<br>sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler<br>sudo apt-get install –no-install-recommends libboost-all-dev<br>sudo apt-get install libopenblas-dev liblapack-dev libatlas-base-dev<br>sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev<br>sudo apt-get install git cmake build-essential</p>
+<h3 id="1-2-禁用自带的显卡驱动nouveau"><a href="#1-2-禁用自带的显卡驱动nouveau" class="headerlink" title="1.2 禁用自带的显卡驱动nouveau"></a>1.2 禁用自带的显卡驱动nouveau</h3><p>sudo gedit /etc/modprobe.d/blacklist-nouveau.conf</p>
+<p>在其中加入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blacklist nouveau option nouveau modeset=0</span><br></pre></td></tr></table></figure></p>
+<p>sudo update-initramfs -u</p>
+<h3 id="1-3-加入环境变量"><a href="#1-3-加入环境变量" class="headerlink" title="1.3 加入环境变量"></a>1.3 加入环境变量</h3><p>sudo gedit ~/.bashrc</p>
+<p>在其中加入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH</span><br><span class="line">export LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure></p>
+<p>执行 source ~/.bashrc</p>
+<h2 id="2-安装NVIDIA显卡驱动"><a href="#2-安装NVIDIA显卡驱动" class="headerlink" title="2. 安装NVIDIA显卡驱动"></a>2. 安装NVIDIA显卡驱动</h2><p>首先还是先去官网下载正确的显卡驱动，官网：<a href="http://www.geforce.cn/drivers" target="_blank" rel="noopener">http://www.geforce.cn/drivers</a><br>查看自己的显卡型号：</p>
+<p>sudo lshw -numeric -C display</p>
+<p>如果之前安装过nvidia驱动，先卸载：</p>
+<p>sudo apt-get remove –purge nvidia-*</p>
+<p>Ctrl-Alt+F1 进入命令行界面</p>
+<p>cd Downloads</p>
+<p>sudo /etc/init.d/lightdm stop #关闭当前图形环境令</p>
+<p>sudo chmod a+x NVIDIA-Linux-x86_64-375.66.run #给驱动run文件赋予执行权限</p>
+<p>sudo ./NVIDIA-Linux-x86_64-375.66.run –no-x-check<br>–no-nouveau-check –no-opengl-files  # 这句一定要加参数，不然就会循环登录。</p>
+<blockquote>
+<p>如果进入循环登录，要再次Ctrl-Alt+F1 进入命令行界面，卸载驱动：<br>sudo apt-get remove –purge nvidia-*</p>
+</blockquote>
+<ul>
+<li>–no-opengl-files  只安装驱动文件，不安装OpenGL文件。这个参数最重要</li>
+<li>–no-check 安装驱动时不检查X服务</li>
+<li>–no-nouveau-check 安装驱动时不检查nouveau </li>
+</ul>
+<p>后面两个参数可不加(Ps: 没懂 - 与 - - 的区别，貌似都可以，我上面写的是两个- -哦)。</p>
+<p>sudo /etc/init.d/lightdm start #重新启动图形环境</p>
+<p>reboot</p>
+<h2 id="3-安装cuda"><a href="#3-安装cuda" class="headerlink" title="3. 安装cuda"></a>3. 安装cuda</h2><p>去官网下载：<a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-downloads</a></p>
+<p>注意一定要下载runfile。</p>
+<p>Ctrl-Alt+F1 进入命令行界面</p>
+<p>cd Downloads</p>
+<p>sudo service lightdm stop #禁用X服务<br>或 sudo /etc/init.d/lightdm stop #一样的命令</p>
+<p>sudo sh cuda-8.0.44_linux.run –no-opengl-libs</p>
+<p>注：第一条问是否安装nvidia驱动，选择no，后面一直输入yes就行</p>
+<p>sudo /etc/init.d/lightdm start #启用服务</p>
+<p>reboot</p>
+<p>重启之后进入修改环境配置</p>
+<p>sudo gedit ~/.bashrc</p>
+<p>加入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda-8.0/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure></p>
+<p>执行： source ~/.bashrc</p>
+<p>测试安装是否成功：</p>
+<p>cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery</p>
+<p>sudo make</p>
+<p>./deviceQuery</p>
+<p>显示gpu信息，说明安装成功。</p>
+<p>查看显卡情况：nvidia-smi</p>
+<h2 id="4-配置cuDNN"><a href="#4-配置cuDNN" class="headerlink" title="4. 配置cuDNN"></a>4. 配置cuDNN</h2><p>官网下载：<a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">https://developer.nvidia.com/rdp/cudnn-download</a></p>
+<p>注册账号之后就可以下载啦。(参考文献1下载的5.1，安装6.0没试）</p>
+<p>cd Downloads/cuda</p>
+<p>sudo cp -a include/cudnn.h /usr/local/cuda/include/ # 复制头文件</p>
+<p>cd ./lib64</p>
+<p>sudo cp -a lib* /usr/local/cuda/lib64/ #复制动态链接库</p>
+<p>cd /usr/local/cuda/lib64/</p>
+<p>sudo rm -rf libcudnn.so libcudnn.so.5 #删除原有动态文件</p>
+<p>sudo ln -s libcudnn.so.5.1.5 libcudnn.so.5 #生成软衔接</p>
+<p>sudo ln -s libcudnn.so.5 libcudnn.so #生成软链接</p>
+<h2 id="5-tensorflow-gpu-and-keras"><a href="#5-tensorflow-gpu-and-keras" class="headerlink" title="5. tensorflow-gpu and keras"></a>5. tensorflow-gpu and keras</h2><p>sudo pip install -U –pre pip setuptools wheel</p>
+<p>sudo pip install -U –pre numpy scipy matplotlib scikit-learn scikit-image</p>
+<p>sudo pip install -U –pre tensorflow-gpu==1.2</p>
+<p>sudo pip install -U –pre keras</p>
+<blockquote>
+<p>注：sudo pip install -U –pre tensorflow-gpu==1.2 , 若没有指定版本，则下载的是最新的版本，我在安装过程中出现以下了问题：</p>
+<ol>
+<li>gpu=1.5 ImportError: libcublas.so.9.0: cannot open shared object file: No such file or directory </li>
+<li>gpu=1.4 ImportError:libcudnn.so.6: cannot open shared object file: No such file or directory</li>
+</ol>
+<p>所以，最后选择了gpu1.2，测试成功。</p>
+</blockquote>
+<h2 id="6-验证："><a href="#6-验证：" class="headerlink" title="6. 验证："></a>6. 验证：</h2><h3 id="6-1-简单测试"><a href="#6-1-简单测试" class="headerlink" title="6.1 简单测试"></a>6.1 简单测试</h3><p>首先关闭所有打开的终端并打开一个新的终端。</p>
+<p>将目录（cd）更改为系统中除调用configure命令的tensorflow子目录之外的任何目录。</p>
+<p>调用python：在命令行输入python<br>输入以下短程序：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf </span><br><span class="line">hello = tf.constant（&apos;Hello，TensorFlow！&apos;）</span><br><span class="line">sess = tf.Session（）</span><br><span class="line">print（sess.run（hello））</span><br></pre></td></tr></table></figure></p>
+<p>你应该看到“你好，TensorFlow！”。恭喜！<br>您也可以输入“print（tf.<strong>version</strong>）”查看安装的TensorFlow的版本。</p>
+<h3 id="6-2官网给出的测试："><a href="#6-2官网给出的测试：" class="headerlink" title="6.2官网给出的测试："></a>6.2官网给出的测试：</h3><p>git clone <a href="https://github.com/fchollet/keras.git" target="_blank" rel="noopener">https://github.com/fchollet/keras.git</a></p>
+<p>cd keras/examples/</p>
+<p>python mnist_mlp.py</p>
+<p>我的测试结果如下:<br><img src="https://github.com/fyingzhu/Markdown_photo/blob/master/InstallTool/2018013003.jpg?raw=true" alt=""><br><img src="https://github.com/fyingzhu/Markdown_photo/blob/master/InstallTool/2018013002.jpg?raw=true" alt=""></p>
+<p>可以看到，启用了device(/gpu:0)</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a href="http://blog.csdn.net/u013502004/article/details/72876134" target="_blank" rel="noopener">双显卡 ubuntu16.04 安装 NVIDIA驱动 + CUDA + cuDNN + tensorflow-gpu + keras</a></li>
+<li><a href="http://wiki.ubuntu.org.cn/NVIDIA" target="_blank" rel="noopener">http://wiki.ubuntu.org.cn/NVIDIA</a></li>
+<li><p><a href="http://blog.csdn.net/silent56_th/article/details/77587792" target="_blank" rel="noopener">tensorflow安装所遇问题：libcudnn.so.6:cannot open sharedobject file: No such file or directory</a></p>
+</li>
+<li><p><a href=""></a></p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://fyingzhu.com/2018/01/24/ubuntu16 环境下 TensorFlow serving安装指南/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -879,7 +1136,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-25T11:32:27+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-25T11:52:35+08:00">
                 2018-01-25
               </time>
             
@@ -914,9 +1171,7 @@
 
       
         
-          <p>欢迎来到我的博客，我的github地址是<a href="https://github.com/fyingzhu" target="_blank" rel="noopener">GitHub</a>.</p>
-<h1 id="Kaggle-Titanic"><a href="#Kaggle-Titanic" class="headerlink" title="Kaggle_Titanic"></a>Kaggle_Titanic</h1><p>the data and ipython notebook of my attempt to solve the kaggle titanic problem</p>
-<p>我自己实验Kaggle上的<a href="https://www.kaggle.com/c/titanic" target="_blank" rel="noopener">Titanic问题</a>的ipython notebook</p>
+          <p>欢迎来到我的博客</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/22/我的博客入门/#more" rel="contents">
@@ -1147,7 +1402,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1158,7 +1413,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1169,7 +1424,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
