@@ -5,18 +5,27 @@
     
   <url>
     <loc>http://fyingzhu.com/2018/01/30/ubuntu16.04%20+%20NVIDIA%E9%A9%B1%E5%8A%A8%20+%20CUDA%20+%20CUDA%20+%20tensorflow-gpu%20+%20keras%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2018-01-30T08:59:07.692Z</lastmod>
+    <lastmod>2018-01-30T09:04:50.853Z</lastmod>
     <data>
         <display>
         <title>ubuntu16.04 + NVIDIA驱动 + CUDA + CUDA + tensorflow-gpu + keras安装</title>
         <pubTime>2018-01-30T08:34:00.000Z</pubTime>
         
-        <tag>ubuntu16.04，CUDA，CUDA，tensorflow-gpu，keras</tag>
+        <tag>ubuntu16.04</tag>
+         
+        <tag>CUDA</tag>
+         
+        <tag>tensorflow-gpu</tag>
+         
+        <tag>keras</tag>
          
          
            
              
-              <breadCrumb title="深度学习，环境配置" url="http://fyingzhu.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+              <breadCrumb title="深度学习" url="http://fyingzhu.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+          
+             
+              <breadCrumb title="环境配置" url="http://fyingzhu.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
           
         </display>
     </data>
