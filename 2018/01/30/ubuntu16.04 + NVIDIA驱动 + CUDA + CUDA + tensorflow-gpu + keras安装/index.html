@@ -137,7 +137,7 @@
 <meta property="og:image" content="https://github.com/fyingzhu/Markdown_photo/blob/master/InstallTool/2018013001.jpg?raw=true">
 <meta property="og:image" content="https://github.com/fyingzhu/Markdown_photo/blob/master/InstallTool/2018013003.jpg?raw=true">
 <meta property="og:image" content="https://github.com/fyingzhu/Markdown_photo/blob/master/InstallTool/2018013002.jpg?raw=true">
-<meta property="og:updated_time" content="2018-01-30T09:04:50.853Z">
+<meta property="og:updated_time" content="2018-01-31T06:36:59.395Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu16.04 + NVIDIA驱动 + CUDA + CUDA + tensorflow-gpu + keras安装">
 <meta name="twitter:description" content="写在前面，一路安装走来，遇到很多TensorFlow、cuda、cudnn版本不兼容匹配的，后来，我找到了NVIDIA官方系统配置 ，可以按照这个来配置，避免多走弯路。     环境：  ubuntu 16.04 64bit 显卡：NVIDIA Tesla k40m + 集成显卡  注：在NVIDIA DriverDownloads查找的最新为384.66，系统配置如下：  但是，安装不成功！">
@@ -393,8 +393,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-30T17:04:50+08:00">
-                2018-01-30
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-31T14:36:59+08:00">
+                2018-01-31
               </time>
             
           </span>
@@ -483,25 +483,19 @@
 </li>
 <li><p>驱动：nvidia 375.66</p>
 </li>
-<li>软件：cuda8.0 + cuDNN5.1<a id="more"></a>
-<h2 id="1-准备工作："><a href="#1-准备工作：" class="headerlink" title="1.准备工作："></a>1.准备工作：</h2><h3 id="1-1-配置安装环境"><a href="#1-1-配置安装环境" class="headerlink" title="1.1 配置安装环境"></a>1.1 配置安装环境</h3>若不安装第5步 tensorflow-gpu+keras，此处可省略。。</li>
+<li>软件：cuda8.0 + cuDNN5.1</li>
 </ul>
-<p>sudo apt-get update<br>sudo apt-get install python-dev python-pip python-nose gcc g++ git gfortran<br>sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler<br>sudo apt-get install –no-install-recommends libboost-all-dev<br>sudo apt-get install libopenblas-dev liblapack-dev libatlas-base-dev<br>sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev<br>sudo apt-get install git cmake build-essential</p>
-<h3 id="1-2-禁用自带的显卡驱动nouveau"><a href="#1-2-禁用自带的显卡驱动nouveau" class="headerlink" title="1.2 禁用自带的显卡驱动nouveau"></a>1.2 禁用自带的显卡驱动nouveau</h3><p>sudo gedit /etc/modprobe.d/blacklist-nouveau.conf</p>
+<a id="more"></a>
+<h2 id="1-准备工作："><a href="#1-准备工作：" class="headerlink" title="1.准备工作："></a>1.准备工作：</h2><h3 id="1-1-配置安装环境"><a href="#1-1-配置安装环境" class="headerlink" title="1.1 配置安装环境"></a>1.1 配置安装环境</h3><p>若不安装第5步 tensorflow-gpu+keras，此处可省略。。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install python-dev python-pip python-nose gcc g++ git gfortran</span><br><span class="line">sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler</span><br><span class="line">sudo apt-get install --no-install-recommends libboost-all-dev</span><br><span class="line">sudo apt-get install libopenblas-dev liblapack-dev libatlas-base-dev</span><br><span class="line">sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev</span><br><span class="line">sudo apt-get install git cmake build-essential</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-2-禁用自带的显卡驱动nouveau"><a href="#1-2-禁用自带的显卡驱动nouveau" class="headerlink" title="1.2 禁用自带的显卡驱动nouveau"></a>1.2 禁用自带的显卡驱动nouveau</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/modprobe.d/blacklist-nouveau.conf</span><br></pre></td></tr></table></figure>
 <p>在其中加入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blacklist nouveau option nouveau modeset=0</span><br></pre></td></tr></table></figure></p>
-<p>sudo update-initramfs -u</p>
-<h3 id="1-3-加入环境变量"><a href="#1-3-加入环境变量" class="headerlink" title="1.3 加入环境变量"></a>1.3 加入环境变量</h3><p>sudo gedit ~/.bashrc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-initramfs -u</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-加入环境变量"><a href="#1-3-加入环境变量" class="headerlink" title="1.3 加入环境变量"></a>1.3 加入环境变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit ~/.bashrc</span><br></pre></td></tr></table></figure>
 <p>在其中加入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH</span><br><span class="line">export LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure></p>
-<p>执行 source ~/.bashrc</p>
-<h2 id="2-安装NVIDIA显卡驱动"><a href="#2-安装NVIDIA显卡驱动" class="headerlink" title="2. 安装NVIDIA显卡驱动"></a>2. 安装NVIDIA显卡驱动</h2><p>首先还是先去官网下载正确的显卡驱动，官网：<a href="http://www.geforce.cn/drivers" target="_blank" rel="noopener">http://www.geforce.cn/drivers</a><br>查看自己的显卡型号：</p>
-<p>sudo lshw -numeric -C display</p>
-<p>如果之前安装过nvidia驱动，先卸载：</p>
-<p>sudo apt-get remove –purge nvidia-*</p>
-<p>Ctrl-Alt+F1 进入命令行界面</p>
-<p>cd Downloads</p>
-<p>sudo /etc/init.d/lightdm stop #关闭当前图形环境令</p>
-<p>sudo chmod a+x NVIDIA-Linux-x86_64-375.66.run #给驱动run文件赋予执行权限</p>
-<p>sudo ./NVIDIA-Linux-x86_64-375.66.run –no-x-check<br>–no-nouveau-check –no-opengl-files  # 这句一定要加参数，不然就会循环登录。</p>
+<p>执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-安装NVIDIA显卡驱动"><a href="#2-安装NVIDIA显卡驱动" class="headerlink" title="2. 安装NVIDIA显卡驱动"></a>2. 安装NVIDIA显卡驱动</h2><p>首先还是先去官网下载正确的显卡驱动，官网：<a href="http://www.geforce.cn/drivers" target="_blank" rel="noopener">http://www.geforce.cn/drivers</a><br>查看自己的显卡型号：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lshw -numeric -C display</span><br></pre></td></tr></table></figure></p>
+<p>如果之前安装过nvidia驱动，先卸载：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove --purge nvidia-*</span><br></pre></td></tr></table></figure></p>
+<p>Ctrl-Alt+F1 进入命令行界面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd Downloads</span><br><span class="line"></span><br><span class="line">sudo /etc/init.d/lightdm stop #关闭当前图形环境令</span><br><span class="line"></span><br><span class="line">sudo chmod a+x NVIDIA-Linux-x86_64-375.66.run #给驱动run文件赋予执行权限</span><br><span class="line"></span><br><span class="line">sudo ./NVIDIA-Linux-x86_64-375.66.run --no-x-check</span><br><span class="line">--no-nouveau-check --no-opengl-files  # 这句一定要加参数，不然就会循环登录。</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>如果进入循环登录，要再次Ctrl-Alt+F1 进入命令行界面，卸载驱动：<br>sudo apt-get remove –purge nvidia-*</p>
 </blockquote>
@@ -510,42 +504,20 @@
 <li>–no-check 安装驱动时不检查X服务</li>
 <li>–no-nouveau-check 安装驱动时不检查nouveau </li>
 </ul>
-<p>后面两个参数可不加(Ps: 没懂 - 与 - - 的区别，貌似都可以，我上面写的是两个- -哦)。</p>
-<p>sudo /etc/init.d/lightdm start #重新启动图形环境</p>
-<p>reboot</p>
+<p>后面两个参数可不加(Ps: 没懂 - 与 - - 的区别，貌似都可以，我上面写的是两个- -哦)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/lightdm start #重新启动图形环境</span><br><span class="line"></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></p>
 <h2 id="3-安装cuda"><a href="#3-安装cuda" class="headerlink" title="3. 安装cuda"></a>3. 安装cuda</h2><p>去官网下载：<a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-downloads</a></p>
 <p>注意一定要下载runfile。</p>
-<p>Ctrl-Alt+F1 进入命令行界面</p>
-<p>cd Downloads</p>
-<p>sudo service lightdm stop #禁用X服务<br>或 sudo /etc/init.d/lightdm stop #一样的命令</p>
-<p>sudo sh cuda-8.0.44_linux.run –no-opengl-libs</p>
-<p>注：第一条问是否安装nvidia驱动，选择no，后面一直输入yes就行</p>
-<p>sudo /etc/init.d/lightdm start #启用服务</p>
-<p>reboot</p>
-<p>重启之后进入修改环境配置</p>
-<p>sudo gedit ~/.bashrc</p>
+<p>Ctrl-Alt+F1 进入命令行界面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd Downloads</span><br><span class="line"></span><br><span class="line">sudo service lightdm stop #禁用X服务</span><br><span class="line">sudo /etc/init.d/lightdm stop #一样的命令</span><br><span class="line"></span><br><span class="line">sudo sh cuda-8.0.44_linux.run --no-opengl-libs</span><br></pre></td></tr></table></figure></p>
+<p>注：第一条问是否安装nvidia驱动，选择no，后面一直输入yes就行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/lightdm start #启用服务</span><br><span class="line"></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></p>
+<p>重启之后进入修改环境配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit ~/.bashrc</span><br></pre></td></tr></table></figure></p>
 <p>加入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda-8.0/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure></p>
-<p>执行： source ~/.bashrc</p>
-<p>测试安装是否成功：</p>
-<p>cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery</p>
-<p>sudo make</p>
-<p>./deviceQuery</p>
+<p>执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<p>测试安装是否成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery</span><br><span class="line"></span><br><span class="line">sudo make</span><br><span class="line"></span><br><span class="line">./deviceQuery</span><br></pre></td></tr></table></figure></p>
 <p>显示gpu信息，说明安装成功。</p>
 <p>查看显卡情况：nvidia-smi</p>
 <h2 id="4-配置cuDNN"><a href="#4-配置cuDNN" class="headerlink" title="4. 配置cuDNN"></a>4. 配置cuDNN</h2><p>官网下载：<a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">https://developer.nvidia.com/rdp/cudnn-download</a></p>
-<p>注册账号之后就可以下载啦。(参考文献1下载的5.1，安装6.0没试）</p>
-<p>cd Downloads/cuda</p>
-<p>sudo cp -a include/cudnn.h /usr/local/cuda/include/ # 复制头文件</p>
-<p>cd ./lib64</p>
-<p>sudo cp -a lib* /usr/local/cuda/lib64/ #复制动态链接库</p>
-<p>cd /usr/local/cuda/lib64/</p>
-<p>sudo rm -rf libcudnn.so libcudnn.so.5 #删除原有动态文件</p>
-<p>sudo ln -s libcudnn.so.5.1.5 libcudnn.so.5 #生成软衔接</p>
-<p>sudo ln -s libcudnn.so.5 libcudnn.so #生成软链接</p>
-<h2 id="5-tensorflow-gpu-and-keras"><a href="#5-tensorflow-gpu-and-keras" class="headerlink" title="5. tensorflow-gpu and keras"></a>5. tensorflow-gpu and keras</h2><p>sudo pip install -U –pre pip setuptools wheel</p>
-<p>sudo pip install -U –pre numpy scipy matplotlib scikit-learn scikit-image</p>
-<p>sudo pip install -U –pre tensorflow-gpu==1.2</p>
-<p>sudo pip install -U –pre keras</p>
+<p>注册账号之后就可以下载啦。(参考文献1下载的5.1，安装6.0没试）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cd Downloads/cuda</span><br><span class="line"></span><br><span class="line">sudo cp -a include/cudnn.h /usr/local/cuda/include/ # 复制头文件</span><br><span class="line"></span><br><span class="line">cd ./lib64</span><br><span class="line"></span><br><span class="line">sudo cp -a lib* /usr/local/cuda/lib64/ #复制动态链接库</span><br><span class="line"></span><br><span class="line">cd /usr/local/cuda/lib64/</span><br><span class="line"></span><br><span class="line">sudo rm -rf libcudnn.so libcudnn.so.5 #删除原有动态文件</span><br><span class="line"></span><br><span class="line">sudo ln -s libcudnn.so.5.1.5 libcudnn.so.5 #生成软衔接</span><br><span class="line"></span><br><span class="line">sudo ln -s libcudnn.so.5 libcudnn.so #生成软链接</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-tensorflow-gpu-and-keras"><a href="#5-tensorflow-gpu-and-keras" class="headerlink" title="5. tensorflow-gpu and keras"></a>5. tensorflow-gpu and keras</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install -U --pre pip setuptools wheel</span><br><span class="line"></span><br><span class="line">sudo pip install -U --pre numpy scipy matplotlib scikit-learn scikit-image</span><br><span class="line"></span><br><span class="line">sudo pip install -U --pre tensorflow-gpu==1.2</span><br><span class="line"></span><br><span class="line">sudo pip install -U --pre keras</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注：sudo pip install -U –pre tensorflow-gpu==1.2 , 若没有指定版本，则下载的是最新的版本，我在安装过程中出现以下了问题：</p>
 <ol>
@@ -556,11 +528,10 @@
 </blockquote>
 <h2 id="6-验证："><a href="#6-验证：" class="headerlink" title="6. 验证："></a>6. 验证：</h2><h3 id="6-1-简单测试"><a href="#6-1-简单测试" class="headerlink" title="6.1 简单测试"></a>6.1 简单测试</h3><p>首先关闭所有打开的终端并打开一个新的终端。</p>
 <p>将目录（cd）更改为系统中除调用configure命令的tensorflow子目录之外的任何目录。</p>
-<p>调用python：在命令行输入python<br>输入以下短程序：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf </span><br><span class="line">hello = tf.constant（&apos;Hello，TensorFlow！&apos;）</span><br><span class="line">sess = tf.Session（）</span><br><span class="line">print（sess.run（hello））</span><br></pre></td></tr></table></figure></p>
-<p>你应该看到“你好，TensorFlow！”。恭喜！<br>您也可以输入“print（tf.<strong>version</strong>）”查看安装的TensorFlow的版本。</p>
-<h3 id="6-2官网给出的测试："><a href="#6-2官网给出的测试：" class="headerlink" title="6.2官网给出的测试："></a>6.2官网给出的测试：</h3><p>git clone <a href="https://github.com/fchollet/keras.git" target="_blank" rel="noopener">https://github.com/fchollet/keras.git</a></p>
-<p>cd keras/examples/</p>
-<p>python mnist_mlp.py</p>
+<p>调用python：在命令行输入python<br>输入以下短程序：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf </span><br><span class="line">hello = tf.constant(&apos;Hello,TensorFlow!&apos;)</span><br><span class="line">sess = tf.Session()</span><br><span class="line">print(sess.run(hello))</span><br></pre></td></tr></table></figure></p>
+<p>你应该看到“你好，TensorFlow！”。恭喜！<br>您也可以输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(tf.__version__)</span><br></pre></td></tr></table></figure></p>
+<p>查看安装的TensorFlow的版本。</p>
+<h3 id="6-2官网给出的测试："><a href="#6-2官网给出的测试：" class="headerlink" title="6.2官网给出的测试："></a>6.2官网给出的测试：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/fchollet/keras.git</span><br><span class="line"></span><br><span class="line">cd keras/examples/</span><br><span class="line"></span><br><span class="line">python mnist_mlp.py</span><br></pre></td></tr></table></figure>
 <p>我的测试结果如下:<br><img src="https://github.com/fyingzhu/Markdown_photo/blob/master/InstallTool/2018013003.jpg?raw=true" alt=""><br><img src="https://github.com/fyingzhu/Markdown_photo/blob/master/InstallTool/2018013002.jpg?raw=true" alt=""></p>
 <p>可以看到，启用了device(/gpu:0)</p>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
@@ -631,8 +602,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/24/ubuntu16 环境下 TensorFlow serving安装指南/" rel="next" title="ubuntu16 环境下 TensorFlow serving安装指南">
-                <i class="fa fa-chevron-left"></i> ubuntu16 环境下 TensorFlow serving安装指南
+              <a href="/2018/01/24/LSTM Neural Network for Time Series Prediction/" rel="next" title="利用LSTM进行时间序列预测">
+                <i class="fa fa-chevron-left"></i> 利用LSTM进行时间序列预测
               </a>
             
           </div>
@@ -640,6 +611,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/01/kaggle系列之Machine-Learning/" rel="prev" title="kaggle系列之Machine Learning">
+                kaggle系列之Machine Learning <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -746,7 +721,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

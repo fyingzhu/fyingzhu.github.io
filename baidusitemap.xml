@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://fyingzhu.com/2018/03/01/kaggle%E7%B3%BB%E5%88%97%E4%B9%8BMachine-Learning/</loc>
+    <lastmod>2018-03-01T03:01:28.695Z</lastmod>
+    <data>
+        <display>
+        <title>kaggle系列之Machine Learning</title>
+        <pubTime>2018-03-01T02:51:53.000Z</pubTime>
+        
+        <tag>learn</tag>
+         
+         
+           
+             
+              <breadCrumb title="kaggle" url="http://fyingzhu.com/categories/kaggle/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://fyingzhu.com/2018/01/30/ubuntu16.04%20+%20NVIDIA%E9%A9%B1%E5%8A%A8%20+%20CUDA%20+%20CUDA%20+%20tensorflow-gpu%20+%20keras%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2018-01-30T09:04:50.853Z</lastmod>
+    <lastmod>2018-01-31T06:36:59.395Z</lastmod>
     <data>
         <display>
         <title>ubuntu16.04 + NVIDIA驱动 + CUDA + CUDA + tensorflow-gpu + keras安装</title>

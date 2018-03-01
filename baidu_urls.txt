@@ -1,6 +1,7 @@
+http://fyingzhu.com/2018/03/01/kaggle系列之Machine-Learning/
 http://fyingzhu.com/2018/01/30/ubuntu16.04 + NVIDIA驱动 + CUDA + CUDA + tensorflow-gpu + keras安装/
-http://fyingzhu.com/2018/01/24/ubuntu16 环境下 TensorFlow serving安装指南/
 http://fyingzhu.com/2018/01/24/LSTM Neural Network for Time Series Prediction/
+http://fyingzhu.com/2018/01/24/ubuntu16 环境下 TensorFlow serving安装指南/
 http://fyingzhu.com/2018/01/22/my-new-post/
 http://fyingzhu.com/2018/01/22/我的博客入门/
 http://fyingzhu.com/2018/01/22/hello-world/
