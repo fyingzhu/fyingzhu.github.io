@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://fyingzhu.com/2018/12/11/%E6%97%B6%E5%BA%8F%E5%88%86%E7%B1%BB/</loc>
+    
+    <lastmod>2018-12-11T09:23:34.088Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fyingzhu.com/2018/03/01/kaggle%E7%B3%BB%E5%88%97%E4%B9%8Btext/</loc>
+    
+    <lastmod>2018-03-01T03:01:28.695Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://fyingzhu.com/2018/03/01/kaggle%E7%B3%BB%E5%88%97%E4%B9%8BMachine-Learning/</loc>
     
     <lastmod>2018-03-01T03:01:28.695Z</lastmod>
@@ -16,7 +30,7 @@
   </url>
   
   <url>
-    <loc>http://fyingzhu.com/2018/01/22/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%85%A5%E9%97%A8/</loc>
+    <loc>http://fyingzhu.com/2018/12/03/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%85%A5%E9%97%A8/</loc>
     
     <lastmod>2018-01-25T03:52:35.760Z</lastmod>
     
@@ -51,7 +65,7 @@
   </url>
   
   <url>
-    <loc>http://fyingzhu.com/2018/01/22/hello-world/</loc>
+    <loc>http://fyingzhu.com/2018/12/03/hello-world/</loc>
     
     <lastmod>2018-01-22T07:18:05.810Z</lastmod>
     
@@ -72,14 +86,14 @@
   </url>
   
   <url>
-    <loc>http://fyingzhu.com/tags/index.html</loc>
+    <loc>http://fyingzhu.com/life/index.html</loc>
     
     <lastmod>2017-06-23T15:32:45.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fyingzhu.com/life/index.html</loc>
+    <loc>http://fyingzhu.com/tags/index.html</loc>
     
     <lastmod>2017-06-23T15:32:45.000Z</lastmod>
     
